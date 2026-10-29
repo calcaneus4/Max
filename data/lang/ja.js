@@ -21,6 +21,7 @@ window.LANG.ja = {
   "series.characters": "キャラクター紹介",
   "series.gallery": "シリーズのイラスト",
   "series.view": "シリーズを見る",
+  "series.get": "シリーズを手に入れる",
   "series.count": "{n}冊",
   "series.countOne": "1冊",
   "book.number": "第{n}巻",

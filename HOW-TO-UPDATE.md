@@ -29,6 +29,19 @@ youtube: { en: "https://www.youtube.com/watch?v=XXXXXXXXXXX" },
 - The language codes are `en` English, `es` Spanish, `de` German, `fr` French, `it` Italian.
 - A YouTube link also puts the video player on the book's page.
 
+## Series-wide store links
+
+Amazon also has a page listing every book in a series. Put that kind of link in the series' `seriesLinks` (near the top of `data/books.js`):
+
+```js
+seriesLinks: {
+  en: { kindle: "https://www.amazon.com/dp/B0HMN3V31C?binding=kindle_edition" },
+  es: { kindle: "", paperback: "" },
+},
+```
+
+It shows as a "Get the series" button on the series page, and every book in that series uses it for any button that doesn't have its own link yet. As soon as you add a book's own link, that book switches to it.
+
 ## Add a new book
 
 1. Put its pictures in a new folder, for example `images/mks/02/`:

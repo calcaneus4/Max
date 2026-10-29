@@ -34,6 +34,11 @@ window.SITE = {
       accent: "#e8a93c",
       hero: "images/max/hero.jpg",
       logo: "",
+      // Series-wide store pages (Amazon's "all books in this series" page), by language and format.
+      // A book's own button uses its own link if it has one, otherwise this series link.
+      seriesLinks: {
+        en: { kindle: "https://www.amazon.com/dp/B0HMN3V31C?binding=kindle_edition" },
+      },
       tagline: "A twelve-year-old who solves mysteries with real medical science.",
       about:
         "Max Millhopper is twelve, his dad is a Navy doctor far out at sea, and Max solves the mysteries nobody else in town can crack, with his friends Katie and George and a case board full of clues. Every book is a full-length mystery with suspense, humor and real science, explained through the story instead of lectures.",
@@ -60,6 +65,7 @@ window.SITE = {
       accent: "#2fa39a",
       hero: "images/mks/hero.jpg",
       logo: "",
+      seriesLinks: {},
       tagline: "Six leftover squires, one reluctant wizard, and mysteries solved by clear thinking.",
       about:
         "No elite cohort picked them, so six misfit squires end up at Merlin's Knight School, where the great wizard teaches them to think before they charge. Each book is a fair-play mystery: every clue is on the page, and the squires learn to separate what they can see from what they only guess.",

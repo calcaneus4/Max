@@ -270,6 +270,7 @@ function renderSeries() {
       <p>${esc(tx(`series.${s.id}.about`, s.about))}</p>
     </section>
     <section class="wrap" style="--c:${s.color};--a:${s.accent}">
+      ${seriesStoreButtons(s)}
       <h2 class="section-title">${esc(t("series.order"))}</h2>
       <p class="small">${esc(tx(`series.${s.id}.readingOrder`, s.readingOrder))}</p>
       <ol class="book-grid">${books.map((b) => `<li>${bookCard(b)}</li>`).join("")}</ol>
@@ -293,12 +294,26 @@ function renderSeries() {
   galleryCheck();
 }
 
+// "Get the series" buttons on a series page, from its seriesLinks.
+function seriesStoreButtons(s) {
+  const rows = [];
+  const order = [...SITE.editions].sort((x, y) => (y === LANG_CODE) - (x === LANG_CODE));
+  for (const ed of order) {
+    const links = (s.seriesLinks || {})[ed] || {};
+    const btns = SITE.formats.filter((f) => links[f]).map((f) => `<a class="btn" href="${esc(links[f])}" target="_blank" rel="noopener">${esc(t(`format.${f}`))}</a>`);
+    if (btns.length) rows.push(`<div class="buy-row"><span class="buy-ed">${esc(t(`edition.${ed}`))}</span>${btns.join("")}</div>`);
+  }
+  return rows.length ? `<div class="series-store"><h2 class="mini-title">${esc(t("series.get"))}</h2>${rows.join("")}</div>` : "";
+}
+
 function buyButtons(b) {
   const rows = [];
   // The visitor's own language edition first, then the rest.
   const order = [...SITE.editions].sort((x, y) => (y === LANG_CODE) - (x === LANG_CODE));
   for (const ed of order) {
-    const links = (b.buy || {})[ed] || {};
+    // The book's own link, or else the series-wide store page for that language and format.
+    const seriesLinks = (seriesById(b.series).seriesLinks || {})[ed] || {};
+    const links = { ...seriesLinks, ...Object.fromEntries(Object.entries((b.buy || {})[ed] || {}).filter(([, v]) => v)) };
     const yt = (b.youtube || {})[ed];
     const btns = SITE.formats
       .map((f) => [f, f === "youtube" ? yt : links[f]])

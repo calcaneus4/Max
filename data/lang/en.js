@@ -24,6 +24,7 @@ window.LANG.en = {
   "series.characters": "Meet the characters",
   "series.gallery": "Pictures from the series",
   "series.view": "See the series",
+  "series.get": "Get the series",
   "series.count": "{n} books",
   "series.countOne": "1 book",
 

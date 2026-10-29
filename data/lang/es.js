@@ -21,6 +21,7 @@ window.LANG.es = {
   "series.characters": "Conoce a los personajes",
   "series.gallery": "Imágenes de la serie",
   "series.view": "Ver la serie",
+  "series.get": "Consigue la serie",
   "series.count": "{n} libros",
   "series.countOne": "1 libro",
   "book.number": "Libro {n}",

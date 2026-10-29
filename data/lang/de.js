@@ -21,6 +21,7 @@ window.LANG.de = {
   "series.characters": "Lerne die Figuren kennen",
   "series.gallery": "Bilder aus der Reihe",
   "series.view": "Zur Reihe",
+  "series.get": "Hol dir die Reihe",
   "series.count": "{n} Bücher",
   "series.countOne": "1 Buch",
   "book.number": "Band {n}",
