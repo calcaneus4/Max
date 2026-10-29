@@ -110,26 +110,38 @@ window.SITE = {
 };
 
 // The fifteen Max Millhopper books share the same layout, so they are listed compactly here.
-// Replace each "Book N" title and blurb as you go (or move a book up into the list above).
-[
-  // [number, "Title", "Blurb"]
-  [1, "Book 1", ""],
-  [2, "Book 2", ""],
-  [3, "Book 3", ""],
-  [4, "Book 4", ""],
-  [5, "Book 5", ""],
-  [6, "Book 6", ""],
-  [7, "Book 7", ""],
-  [8, "Book 8", ""],
-  [9, "Book 9", ""],
-  [10, "Book 10", ""],
-  [11, "Book 11", ""],
-  [12, "Book 12", ""],
-  [13, "Book 13", ""],
-  [14, "Book 14", ""],
-  [15, "Book 15", ""],
-].forEach(([n, title, blurb]) => {
+// Each row: [number, "Title", "Blurb", "English YouTube link", "Spanish YouTube link"].
+// Replace each "Book N" title and add the blurb as you go. Store links (Kindle, paperback,
+// hardcover) go in the MAX_STORE_LINKS table below.
+const MAX_BOOKS = [
+  [1, "Book 1", "", "https://www.youtube.com/watch?v=82bR-ZjKAIo", "https://www.youtube.com/watch?v=Gh6NlLAqraM"],
+  [2, "Book 2", "", "https://www.youtube.com/watch?v=KcdEamDZnZE", "https://www.youtube.com/watch?v=yrI3Si2JxiY"],
+  [3, "Book 3", "", "https://www.youtube.com/watch?v=WODxJEASpNo", "https://www.youtube.com/watch?v=1Y2-2Kj2i5s"],
+  [4, "Book 4", "", "https://www.youtube.com/watch?v=kQSApFHY108", "https://www.youtube.com/watch?v=8MWqDkL5AjQ"],
+  [5, "Book 5", "", "https://www.youtube.com/watch?v=vxxO3zlFYu4", ""],
+  [6, "Book 6", "", "https://www.youtube.com/watch?v=XA9WI-DJmms", ""],
+  [7, "Book 7", "", "https://www.youtube.com/watch?v=szvaQ93jAhU", ""],
+  [8, "Book 8", "", "https://www.youtube.com/watch?v=k9mt65-2dU0", ""],
+  [9, "Book 9", "", "https://www.youtube.com/watch?v=8k20fNqJmp8", ""],
+  [10, "Book 10", "", "https://www.youtube.com/watch?v=5tSQ7sFgdTc", ""],
+  [11, "Book 11", "", "https://www.youtube.com/watch?v=31_t4JZHQ84", ""],
+  [12, "Book 12", "", "https://www.youtube.com/watch?v=-oOrv5CGXfI", ""],
+  [13, "Book 13", "", "https://www.youtube.com/watch?v=35a2I6GYO1Q", ""],
+  [14, "Book 14", "", "https://www.youtube.com/watch?v=saaoSg45k3A", ""],
+  [15, "Book 15", "", "https://www.youtube.com/watch?v=c86lN_JfDtY", ""],
+];
+
+// Store links for the Max books, by book number and language. Fill in what you have;
+// anything left out is simply hidden. Example:
+//   3: { en: { kindle: "https://www.amazon.com/dp/XXXX", paperback: "", hardcover: "" } },
+const MAX_STORE_LINKS = {
+};
+
+MAX_BOOKS.forEach(([n, title, blurb, ytEn, ytEs]) => {
   const nn = String(n).padStart(2, "0");
+  const store = MAX_STORE_LINKS[n] || {};
+  const buy = {};
+  for (const ed of ["en", "es", "de", "fr", "it"]) buy[ed] = { kindle: "", paperback: "", hardcover: "", ...(store[ed] || {}) };
   window.SITE.books.push({
     id: `max-${nn}`,
     series: "max",
@@ -138,13 +150,7 @@ window.SITE = {
     blurb,
     cover: `images/max/${nn}/cover.jpg`,
     gallery: [1, 2, 3, 4, 5, 6].map((k) => `images/max/${nn}/0${k}.jpg`),
-    buy: {
-      en: { kindle: "", paperback: "", hardcover: "" },
-      es: { kindle: "", paperback: "", hardcover: "" },
-      de: { kindle: "", paperback: "", hardcover: "" },
-      fr: { kindle: "", paperback: "", hardcover: "" },
-      it: { kindle: "", paperback: "", hardcover: "" },
-    },
-    youtube: { en: "", es: "" },
+    buy,
+    youtube: { en: ytEn || "", es: ytEs || "" },
   });
 });

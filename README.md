@@ -2,7 +2,7 @@
 
 The website for **Max Millhopper, Medical Detective™** and **Merlin's Knight School™**.
 
-- Live site: https://calcaneus4.github.io/
+- Live site: https://calcaneus4.github.io/Max/
 - To add books, links, pictures or translations, see **[HOW-TO-UPDATE.md](HOW-TO-UPDATE.md)**.
 
 It is a plain static website (HTML, CSS and JavaScript, no build step), hosted free on GitHub Pages. Open `index.html` to preview it on your own computer.
