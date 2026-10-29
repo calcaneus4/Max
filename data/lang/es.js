@@ -81,7 +81,7 @@ window.LANG.es = {
   "g.squire.desc": "Responde seis preguntas y descubre con quién te pareces en La Escuela de Caballeros de Merlin.",
   "g.squire.result": "¡Eres {name}!",
   "g.squire.q": "Pregunta {i} de {n}",
-  "footer.tm": "Max Millhopper, Medical Detective™ y Merlin's Knight School™ son marcas registradas de Michael K. Davis.",
+  "footer.tm": "Max Millhopper, Medical Detective™ y Merlin's Knight School™ son marcas comerciales de Michael K. Davis.",
   "footer.rights": "Todos los derechos reservados.",
   "author.bio": "Michael K. Davis es un pediatra de Florida que escribe misterios ilustrados para lectores jóvenes.",
   "series.max.tagline": "Un chico de doce años que resuelve misterios con ciencia médica de verdad.",
