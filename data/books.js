@@ -37,7 +37,10 @@ window.SITE = {
       // Series-wide store pages (Amazon's "all books in this series" page), by language and format.
       // A book's own button uses its own link if it has one, otherwise this series link.
       seriesLinks: {
-        en: { kindle: "https://www.amazon.com/dp/B0HMN3V31C?binding=kindle_edition" },
+        en: {
+          kindle: "https://www.amazon.com/dp/B0HMN3V31C?binding=kindle_edition",
+          hardcover: "https://www.amazon.com/dp/B0HMN3V31C?binding=hardcover",
+        },
       },
       tagline: "A twelve-year-old who solves mysteries with real medical science.",
       about:
