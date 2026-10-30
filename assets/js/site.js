@@ -64,6 +64,9 @@ const seriesById = (id) => SITE.series.find((s) => s.id === id);
 const booksIn = (id) => SITE.books.filter((b) => b.series === id).sort((a, b) => a.number - b.number);
 const seriesName = (s) => tx(`series.${s.id}.name`, s.name);
 // Placeholder titles ("Book 3") are shown in the visitor's language until a real title is set.
+const charName = (sid, c) => tx(`char.${sid}.${c.id}.name`, c.name);
+// Turns blank-line-separated text into paragraphs.
+const paras = (text, cls = "") => String(text || "").split(/\n\s*\n/).map((x) => `<p${cls ? ` class="${cls}"` : ""}>${esc(x.trim())}</p>`).join("");
 const bookTitle = (b) => (/^Book \d+$/.test(b.title) ? t("book.number", { n: b.number }) : tx(`book.${b.id}.title`, b.title));
 const seriesShort = (s) => tx(`series.${s.id}.short`, LANG_CODE === "en" ? s.short : tx(`series.${s.id}.name`, s.short));
 const bookCount = (id) => {
@@ -267,7 +270,9 @@ function renderSeries() {
       </div>
     </section>
     <section class="wrap prose" style="--c:${s.color}">
-      <p>${esc(tx(`series.${s.id}.about`, s.about))}</p>
+      ${s.motto ? `<blockquote class="motto">“${esc(tx(`series.${s.id}.motto`, s.motto))}”<cite>${esc(t("series.motto"))}</cite></blockquote>` : ""}
+      ${paras(tx(`series.${s.id}.about`, s.about))}
+      ${s.editionsNote ? `<p class="small">${esc(tx(`series.${s.id}.editionsNote`, s.editionsNote))}</p>` : ""}
     </section>
     <section class="wrap" style="--c:${s.color};--a:${s.accent}">
       ${seriesStoreButtons(s)}
@@ -280,8 +285,8 @@ function renderSeries() {
       <div class="char-grid">
         ${s.characters.map((c) => `
           <article class="char-card">
-            ${pic(c.image, c.name, { series: s.id, cls: "char-pic", label: c.name })}
-            <h3>${esc(c.name)}</h3>
+            ${pic(c.image, charName(s.id, c), { series: s.id, cls: "char-pic", label: charName(s.id, c) })}
+            <h3>${esc(charName(s.id, c))}</h3>
             <p class="role">${esc(tx(`char.${s.id}.${c.id}.role`, c.role))}</p>
             <p>${esc(tx(`char.${s.id}.${c.id}.bio`, c.bio))}</p>
           </article>`).join("")}
@@ -349,7 +354,10 @@ function renderBook() {
         <a class="crumb" href="${link(`series.html?id=${s.id}`)}">${esc(seriesName(s))}</a>
         <p class="book-num">${esc(t("book.number", { n: b.number }))}</p>
         <h1>${esc(bookTitle(b))}</h1>
-        <p class="lead">${esc(tx(`book.${b.id}.blurb`, b.blurb))}</p>
+        ${b.tagline ? `<p class="tagline">${esc(tx(`book.${b.id}.tagline`, b.tagline))}</p>` : ""}
+        <div class="blurb">${paras(tx(`book.${b.id}.blurb`, b.blurb))}</div>
+        ${b.learn && b.learn.length ? `<div class="learn"><h2 class="mini-title">${esc(t("book.learn"))}</h2>
+          <ul>${b.learn.map((l, i) => `<li>${esc(tx(`book.${b.id}.learn${i}`, l))}</li>`).join("")}</ul></div>` : ""}
         <h2 class="mini-title">${esc(t("book.get"))}</h2>
         <div class="buy">${buyButtons(b)}</div>
       </div>

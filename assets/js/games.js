@@ -157,7 +157,7 @@ function gameMemory() {
       </div>
       <div class="mem-grid n${pairs}">${deck.map((c, j) => `<button class="mem-card" data-j="${j}" aria-label="?">
         <span class="mem-back"></span>
-        <span class="mem-front" style="--c:${c.color}">${pic(c.image, c.name, { series: c.series, cls: "mem-pic", label: c.name })}<span class="mem-name">${esc(c.name)}</span></span>
+        <span class="mem-front" style="--c:${c.color}">${pic(c.image, charName(c.series, c), { series: c.series, cls: "mem-pic", label: charName(c.series, c) })}<span class="mem-name">${esc(charName(c.series, c))}</span></span>
       </button>`).join("")}</div>`;
     $(".lvl", stage).onchange = (e) => {
       pairs = +e.target.value;

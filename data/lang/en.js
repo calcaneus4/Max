@@ -49,6 +49,9 @@ window.LANG.en = {
   "edition.de": "German",
   "edition.fr": "French",
   "edition.it": "Italian",
+  "book.learn": "In this book you'll learn",
+  "series.motto": "From Max's notebook",
+  "edition.ja": "Japanese",
 
   "about.title": "About the author",
   "about.contact": "Get in touch",
