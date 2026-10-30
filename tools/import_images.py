@@ -20,10 +20,12 @@ from PIL import Image
 
 ROOT = Path(__file__).resolve().parent.parent
 SERIES = sys.argv[sys.argv.index("--series") + 1] if "--series" in sys.argv else "max"
-SRC = ROOT / "incoming"
+# Source folder: incoming/ by default, or a folder given with --from "Folder name".
+SRC = ROOT / (sys.argv[sys.argv.index("--from") + 1] if "--from" in sys.argv else "incoming")
 
 # Longest side in pixels for each kind of picture.
-SIZES = {"cover": 1100, "inside": 1600, "wide": 1800, "hero": 2200, "char": 700}
+SIZES = {"cover": 1100, "inside": 1600, "wide": 1800, "hero": 2200, "char": 600, "sheet": 1800}
+THUMBS = {"cover": 420, "inside": 640, "wide": 640, "char": 360}
 
 CHARACTERS = {
     "max": {
@@ -38,12 +40,42 @@ CHARACTERS = {
 }
 
 
+# Character reference sheets: the card shows a square portrait cropped from the sheet
+# (centre x, centre y and side, as fractions; see tools/character_crops.json) and the
+# whole sheet is kept as <id>-sheet.jpg for the click-to-enlarge view.
+CROP_FILE = ROOT / "tools" / "character_crops.json"
+CROPS = {k: v[1:] for k, v in __import__("json").load(open(CROP_FILE)).items()} if CROP_FILE.exists() else {}
+
+
+def save_character(src, dest):
+    save(src, dest.with_name(dest.stem + "-sheet.jpg"), "sheet")
+    cid = dest.stem
+    if cid not in CROPS:
+        save(src, dest, "char")
+        return
+    cx, cy, s = CROPS[cid]
+    with Image.open(src) as im:
+        im = im.convert("RGB")
+        w, h = im.size
+        side = s * h
+        crop = im.crop((int(cx * w - side / 2), int(cy * h - side / 2), int(cx * w + side / 2), int(cy * h + side / 2)))
+        tmp = dest.with_name(dest.stem + "-crop.png")
+        dest.parent.mkdir(parents=True, exist_ok=True)
+        crop.save(tmp)
+    save(tmp, dest, "char")
+    tmp.unlink()
+
+
 def save(src, dest, kind):
     dest.parent.mkdir(parents=True, exist_ok=True)
     with Image.open(src) as im:
         im = im.convert("RGB")
         im.thumbnail((SIZES[kind], SIZES[kind]), Image.LANCZOS)
         im.save(dest, "JPEG", quality=82, optimize=True, progressive=True)
+        # A small copy for grids and cards; the full picture opens when clicked.
+        if kind in THUMBS:
+            im.thumbnail((THUMBS[kind], THUMBS[kind]), Image.LANCZOS)
+            im.save(dest.with_name(dest.stem + "-sm.jpg"), "JPEG", quality=80, optimize=True, progressive=True)
     print(f"{src.name:60} -> {dest.relative_to(ROOT)}  ({dest.stat().st_size // 1024} KB)")
 
 
@@ -78,6 +110,8 @@ def main():
         if kind == "alt":
             alt += 1
             save(f, ROOT / f"images/{SERIES}/banner-alt-{alt}.jpg", "hero")
+        elif rel and kind == "char":
+            save_character(f, ROOT / rel)
         elif rel:
             save(f, ROOT / rel, kind)
         else:

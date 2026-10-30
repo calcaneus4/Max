@@ -121,8 +121,9 @@ h3 { font-size: 1.15rem; margin: 0.6em 0 0.3em; }
 
 /* ---------- Home ---------- */
 .hero { position: relative; border-bottom: var(--line); background: var(--ink); overflow: hidden; }
-.hero-art { display: grid; grid-template-columns: 1fr 1fr; gap: 0; height: clamp(320px, 55vw, 560px); }
-.hero-pic { border: none; border-radius: 0; height: 100%; }
+/* Series banners side by side; a banner whose picture is missing drops out and the rest fill the width. */
+.hero-art { display: flex; height: clamp(320px, 55vw, 560px); }
+.hero-pic { flex: 1; border: none; border-radius: 0; height: 100%; }
 .hero-pic + .hero-pic { border-left: var(--line); }
 .hero-text {
   position: absolute;
@@ -304,3 +305,7 @@ h3 { font-size: 1.15rem; margin: 0.6em 0 0.3em; }
 .learn li { margin: 0.25rem 0; }
 .motto { margin: 0 0 1.2rem; font: italic 600 1.35rem/1.35 var(--body); border-left: 6px solid var(--c); padding: 0.2rem 0 0.2rem 1rem; }
 .motto cite { display: block; font: 700 0.85rem var(--head); font-style: normal; color: var(--muted); margin-top: 0.3rem; }
+
+/* Character portrait that opens the full reference sheet. */
+.char-zoom { display: block; width: 100%; aspect-ratio: auto; padding: 0; border: none; box-shadow: none; background: none; transform: none !important; }
+.char-zoom .char-pic { border: var(--line); }

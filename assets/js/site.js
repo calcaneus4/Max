@@ -75,12 +75,14 @@ const bookCount = (id) => {
 };
 
 // ---------- Pictures ----------
+// "images/max/01/02.jpg" -> "images/max/01/02-sm.jpg" (the small copy made by tools/import_images.py).
+const small = (src) => String(src).replace(/\.jpg$/i, "-sm.jpg");
 // A picture that falls back to a drawn title card when its file is missing.
 function pic(src, alt, opts = {}) {
   const s = opts.series ? seriesById(opts.series) : null;
   const style = s ? `--c:${s.color};--a:${s.accent}` : "";
-  return `<span class="pic ${opts.cls || ""}" style="${style}" data-label="${esc(opts.label || alt)}" data-sub="${esc(opts.sub || "")}">
-    <img src="${esc(src)}" alt="${esc(alt)}" loading="lazy" onerror="picFail(this)">
+  return `<span class="pic ${opts.cls || ""}" style="${style}"${opts.hideMissing ? ' data-hide-missing="1"' : ""} data-label="${esc(opts.label || alt)}" data-sub="${esc(opts.sub || "")}">
+    <img src="${esc(opts.small ? small(src) : src)}" alt="${esc(alt)}" loading="lazy" onerror="${opts.small ? "if (!this.dataset.tried) { this.dataset.tried = 1; this.src = this.dataset.big; } else picFail(this)" : "picFail(this)"}" data-big="${esc(src)}">
   </span>`;
 }
 window.picFail = function (img) {
@@ -97,7 +99,7 @@ window.picFail = function (img) {
 function galleryPic(src, alt, series) {
   const s = seriesById(series);
   return `<button class="gal" style="--c:${s.color}" data-full="${esc(src)}" aria-label="${esc(alt)}">
-    <img src="${esc(src)}" alt="${esc(alt)}" loading="lazy" onerror="this.closest('.gal').remove(); galleryCheck()">
+    <img src="${esc(small(src))}" alt="${esc(alt)}" loading="lazy" onerror="if (!this.dataset.full) { this.dataset.full = 1; this.src = this.closest('.gal').dataset.full; } else { this.closest('.gal').remove(); galleryCheck(); }">
   </button>`;
 }
 window.galleryCheck = function () {
@@ -172,16 +174,24 @@ function renderChrome(active) {
 function bookCard(b) {
   const s = seriesById(b.series);
   return `<a class="book-card" href="${link(`book.html?id=${b.id}`)}" style="--c:${s.color};--a:${s.accent}">
-    ${pic(b.cover, bookTitle(b), { series: b.series, cls: "cover", label: bookTitle(b), sub: seriesShort(s) })}
+    ${pic(b.cover, bookTitle(b), { series: b.series, cls: "cover", label: bookTitle(b), sub: seriesShort(s), small: true })}
     <span class="book-num">${esc(t("book.number", { n: b.number }))}</span>
     <span class="book-title">${esc(bookTitle(b))}</span>
   </a>`;
 }
 
+// One picture from each book in turn (the first is each book's wide scene), so every book shows up.
+function roundRobin(series, limit) {
+  const books = booksIn(series);
+  const out = [];
+  for (let i = 0; out.length < limit && books.some((b) => (b.gallery || [])[i]); i++) {
+    for (const b of books) if ((b.gallery || [])[i] && out.length < limit) out.push([b.gallery[i], bookTitle(b), series]);
+  }
+  return out;
+}
+
 function seriesGallery(series, limit) {
-  const pics = [];
-  for (const b of booksIn(series)) for (const g of b.gallery || []) pics.push([g, bookTitle(b)]);
-  return pics.slice(0, limit).map(([src, alt]) => galleryPic(src, alt, series)).join("");
+  return roundRobin(series, limit).map(([src, alt]) => galleryPic(src, alt, series)).join("");
 }
 
 // ---------- Pages ----------
@@ -191,17 +201,13 @@ function renderHome() {
   const latest = SITE.series.map((s) => booksIn(s.id).slice(-1)[0]).filter(Boolean);
   // Mixed gallery: alternate pictures from each series.
   const mixed = [];
-  const lists = SITE.series.map((s) => {
-    const out = [];
-    for (const b of booksIn(s.id)) for (const g of b.gallery || []) out.push([g, bookTitle(b), s.id]);
-    return out;
-  });
+  const lists = SITE.series.map((s) => roundRobin(s.id, 16));
   for (let i = 0; mixed.length < 16 && lists.some((l) => l[i]); i++) for (const l of lists) if (l[i]) mixed.push(l[i]);
   const a = SITE.author;
   main.innerHTML = `
     <section class="hero">
       <div class="hero-art">
-        ${SITE.series.map((s) => pic(s.hero, seriesName(s), { series: s.id, cls: "hero-pic", label: seriesName(s) })).join("")}
+        ${SITE.series.map((s) => pic(s.hero, seriesName(s), { series: s.id, cls: "hero-pic", label: seriesName(s), hideMissing: true })).join("")}
       </div>
       <div class="hero-text">
         <h1>${esc(t("home.title"))}</h1>
@@ -215,7 +221,7 @@ function renderHome() {
         ${SITE.series.map((s) => `
           <article class="series-card" style="--c:${s.color};--a:${s.accent}">
             <a href="${link(`series.html?id=${s.id}`)}" class="series-card-art">
-              ${booksIn(s.id).slice(0, 3).map((b) => pic(b.cover, bookTitle(b), { series: s.id, cls: "cover fan", label: bookTitle(b), sub: seriesShort(s) })).join("")}
+              ${booksIn(s.id).slice(0, 3).map((b) => pic(b.cover, bookTitle(b), { series: s.id, cls: "cover fan", label: bookTitle(b), sub: seriesShort(s), small: true })).join("")}
             </a>
             <div class="series-card-body">
               <h3>${esc(seriesName(s))}</h3>
@@ -285,7 +291,9 @@ function renderSeries() {
       <div class="char-grid">
         ${s.characters.map((c) => `
           <article class="char-card">
-            ${pic(c.image, charName(s.id, c), { series: s.id, cls: "char-pic", label: charName(s.id, c) })}
+            <button class="gal char-zoom" style="--c:${s.color}" data-full="${esc(c.image.replace(/\.jpg$/i, "-sheet.jpg"))}" aria-label="${esc(charName(s.id, c))}">
+              ${pic(c.image, charName(s.id, c), { series: s.id, cls: "char-pic", label: charName(s.id, c), small: true })}
+            </button>
             <h3>${esc(charName(s.id, c))}</h3>
             <p class="role">${esc(tx(`char.${s.id}.${c.id}.role`, c.role))}</p>
             <p>${esc(tx(`char.${s.id}.${c.id}.bio`, c.bio))}</p>
