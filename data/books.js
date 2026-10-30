@@ -39,6 +39,7 @@ window.SITE = {
       seriesLinks: {
         en: {
           kindle: "https://www.amazon.com/dp/B0HMN3V31C?binding=kindle_edition",
+          paperback: "https://www.amazon.com/dp/B0HMN3V31C?binding=paperback",
           hardcover: "https://www.amazon.com/dp/B0HMN3V31C?binding=hardcover",
         },
       },
