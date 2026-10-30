@@ -289,7 +289,7 @@ window.LANG.it = {
   "char.max.da.role": "Il procuratore distrettuale",
   "char.max.da.bio": "Il procuratore distrettuale, famoso per avere sempre la battuta più asciutta della stanza.",
   "char.max.tarrant.role": "Il bisnonno di George",
-  "char.max.tarrant.bio": "Medico militare dell’esercito nel 1968 e bisnonno di George, onorato con una statua di bronzo a Cortland Bay.",
+  "char.max.tarrant.bio": "Soccorritore militare dell’esercito nel 1968 e bisnonno di George, onorato con una statua di bronzo a Cortland Bay.",
   "char.max.da.name": "Il papà di George",
   "book.max-01.tagline": "Un caveau sigillato. Un bottino scomparso. E un microinfusore di insulina che mente.",
   "book.max-01.blurb": "Duecentomila dollari spariscono dalla Garber’s Community Bank e, la mattina dopo, un impiegato viene trovato morto dentro il caveau sigillato. Per Max Millhopper, dodici anni, i conti non tornano.\n\nCon i suoi migliori amici Katie e George, un quaderno a spirale e una testa piena di vera medicina, Max segue il filo d’oro — da un microinfusore di insulina che sembrava funzionare alla perfezione fino a un pick-up rosso, un uomo con il passamontagna e un buio tunnel di scolo delle acque piovane.\n\nCome hanno fatto i soldi a uscire da una banca dove niente esce senza che qualcuno se ne accorga — e chi sta guidando il pick-up di un uomo morto?",
