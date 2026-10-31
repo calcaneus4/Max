@@ -207,11 +207,17 @@ function renderHome() {
   main.innerHTML = `
     <section class="hero">
       <div class="hero-art">
-        ${SITE.series.map((s) => pic(s.hero, seriesName(s), { series: s.id, cls: "hero-pic", label: seriesName(s), hideMissing: true })).join("")}
+        ${SITE.series.map((s, i) => `<div class="hero-slide${i ? "" : " on"}" data-series="${s.id}">
+          <img src="${esc(s.hero)}" alt="${esc(seriesName(s))}" onerror="heroFail(this)">
+        </div>`).join("")}
       </div>
       <div class="hero-text">
         <h1>${esc(t("home.title"))}</h1>
         <p class="lead">${esc(t("home.lead"))}</p>
+        <div class="hero-toggle" role="tablist" aria-label="${esc(t("home.explore"))}">
+          ${SITE.series.map((s, i) => `<button role="tab" class="hero-tab${i ? "" : " on"}" data-series="${s.id}" style="--c:${s.color};--a:${s.accent}" aria-selected="${!i}">${esc(seriesShort(s))}</button>`).join("")}
+        </div>
+        <a class="hero-go" href="${link(`series.html?id=${SITE.series[0].id}`)}">${esc(t("series.view"))} →</a>
       </div>
     </section>
 
@@ -258,7 +264,57 @@ function renderHome() {
       ${a.contact ? `<p><a class="btn" href="${esc(a.contact)}">${esc(t("about.contact"))}</a></p>` : ""}
     </section>`;
   galleryCheck();
+  initHero();
 }
+
+// ---------- Home banner: one slide per series, cross-fading, with series buttons ----------
+window.heroFail = function (img) {
+  // No banner picture for this series yet: drop its slide and button.
+  const id = img.closest(".hero-slide").dataset.series;
+  document.querySelectorAll(`[data-series="${id}"]`).forEach((n) => n.remove());
+  const first = document.querySelector(".hero-slide");
+  if (first && !document.querySelector(".hero-slide.on")) showHero(first.dataset.series);
+  const tabs = document.querySelectorAll(".hero-tab");
+  if (tabs.length < 2) tabs.forEach((x) => (x.hidden = true));
+};
+
+function showHero(id) {
+  const s = seriesById(id);
+  document.querySelectorAll(".hero-slide").forEach((n) => n.classList.toggle("on", n.dataset.series === id));
+  document.querySelectorAll(".hero-tab").forEach((n) => {
+    n.classList.toggle("on", n.dataset.series === id);
+    n.setAttribute("aria-selected", n.dataset.series === id);
+  });
+  const box = $(".hero-text");
+  if (box && s) {
+    box.style.setProperty("--c", s.color);
+    $(".hero-go", box).href = link(`series.html?id=${id}`);
+  }
+}
+
+function initHero() {
+  const hero = $(".hero");
+  if (!hero) return;
+  let paused = false;
+  hero.addEventListener("mouseenter", () => (paused = true));
+  hero.addEventListener("mouseleave", () => (paused = false));
+  hero.addEventListener("click", (e) => {
+    const tab = e.target.closest(".hero-tab");
+    if (!tab) return;
+    showHero(tab.dataset.series);
+    paused = true; // a visitor who picks a series keeps it
+  });
+  showHero(SITE.series[0].id);
+  const still = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (still) return;
+  setInterval(() => {
+    const slides = [...document.querySelectorAll(".hero-slide")];
+    if (paused || slides.length < 2 || document.hidden) return;
+    const i = slides.findIndex((n) => n.classList.contains("on"));
+    showHero(slides[(i + 1) % slides.length].dataset.series);
+  }, HERO_SECONDS * 1000);
+}
+const HERO_SECONDS = 8;
 
 function renderSeries() {
   const id = new URLSearchParams(location.search).get("id") || SITE.series[0].id;
