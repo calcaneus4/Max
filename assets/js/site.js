@@ -212,8 +212,8 @@ function renderHome() {
         </div>`).join("")}
       </div>
       <div class="hero-text">
-        <h1>${esc(t("home.title"))}</h1>
-        <p class="lead">${esc(t("home.lead"))}</p>
+        <h1 class="hero-title">${esc(tx(`series.${SITE.series[0].id}.bannerTitle`, SITE.series[0].bannerTitle))}</h1>
+        <p class="lead hero-line">${esc(tx(`series.${SITE.series[0].id}.bannerLine`, SITE.series[0].bannerLine))}</p>
         <div class="hero-toggle" role="tablist" aria-label="${esc(t("home.explore"))}">
           ${SITE.series.map((s, i) => `<button role="tab" class="hero-tab${i ? "" : " on"}" data-series="${s.id}" style="--c:${s.color};--a:${s.accent}" aria-selected="${!i}">${esc(seriesShort(s))}</button>`).join("")}
         </div>
@@ -289,6 +289,19 @@ function showHero(id) {
   if (box && s) {
     box.style.setProperty("--c", s.color);
     $(".hero-go", box).href = link(`series.html?id=${id}`);
+    // Each series has its own headline and line; they fade over with the picture.
+    const title = tx(`series.${id}.bannerTitle`, s.bannerTitle);
+    const line = tx(`series.${id}.bannerLine`, s.bannerLine);
+    const h = $(".hero-title", box);
+    const l = $(".hero-line", box);
+    if (h.textContent !== title) {
+      box.classList.add("swap");
+      setTimeout(() => {
+        h.textContent = title;
+        l.textContent = line;
+        box.classList.remove("swap");
+      }, 250);
+    }
   }
 }
 

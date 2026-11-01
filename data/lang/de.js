@@ -386,4 +386,8 @@ window.LANG.de = {
   "book.mks-01.learn1": "Unterscheiden, was du siehst und was du nur vermutest",
   "book.mks-01.learn2": "Warum offiziell aussehen nicht dasselbe ist wie offiziell sein",
   "book.mks-01.learn3": "Bemerken, was fehlt",
+  "series.max.bannerTitle": "Echte Medizin. Echte Hinweise. Ein zwölfjähriger Detektiv.",
+  "series.max.bannerLine": "Max Millhopper und seine Freunde Katie und George lösen medizinische Rätsel in Cortland Bay, Florida – und jeder Fall vermittelt echte Wissenschaft.",
+  "series.mks.bannerTitle": "Sechs übrig gebliebene Knappen. Ein widerwilliger Zauberer.",
+  "series.mks.bannerLine": "Faire Rätselkrimis, bei denen jeder Hinweis auf der Seite steht und die Knappen lernen, zu unterscheiden, was sie sehen und was sie nur vermuten.",
 };

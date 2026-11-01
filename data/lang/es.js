@@ -386,4 +386,8 @@ window.LANG.es = {
   "book.mks-01.learn1": "Distinguir lo que ves de lo que supones",
   "book.mks-01.learn2": "Por qué parecer oficial no es lo mismo que ser oficial",
   "book.mks-01.learn3": "Fijarte en lo que falta",
+  "series.max.bannerTitle": "Medicina real. Pistas reales. Un detective de doce años.",
+  "series.max.bannerLine": "Max Millhopper y sus amigos Katie y George resuelven misterios médicos en Cortland Bay, Florida, y cada caso enseña ciencia real.",
+  "series.mks.bannerTitle": "Seis escuderos sobrantes. Un mago a regañadientes.",
+  "series.mks.bannerLine": "Misterios de juego limpio donde cada pista está en la página, y los escuderos aprenden a distinguir lo que ven de lo que solo suponen.",
 };

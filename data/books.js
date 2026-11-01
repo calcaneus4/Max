@@ -45,6 +45,9 @@ window.SITE = {
       },
       tagline: "Medical mysteries for ages 8–12, written by a pediatrician.",
       motto: "The smallest detail hides the greatest truth.",
+      // Home-page banner text for this series.
+      bannerTitle: "Real medicine. Real clues. One twelve-year-old detective.",
+      bannerLine: "Max Millhopper and his friends Katie and George solve medical mysteries in Cortland Bay, Florida — and every case teaches real science.",
       about:
         "Twelve-year-old Max Millhopper has a spiral notebook, a magnifying glass and a knack for spotting what the grown-ups miss. With his best friends Katie and George, he solves medical mysteries in the small coastal town of Cortland Bay, Florida — and every case teaches real science along the way. Each book is a stand-alone mystery, written by a pediatrician.",
       editionsNote:
@@ -78,6 +81,9 @@ window.SITE = {
       logo: "",
       seriesLinks: {},
       tagline: "Six leftover squires, one reluctant wizard, and mysteries solved by clear thinking.",
+      // Home-page banner text for this series.
+      bannerTitle: "Six leftover squires. One reluctant wizard.",
+      bannerLine: "Fair-play mysteries where every clue is on the page, and the squires learn to tell what they see from what they only guess.",
       about:
         "No elite cohort picked them, so six misfit squires end up in the Leftover Yard at Merlin's Knight School, where the great wizard teaches them to think before they charge. Each book is a fair-play mystery for ages 8–14: every clue is on the page, and the squires learn to separate what they can actually see from what they only guess.",
       readingOrder:

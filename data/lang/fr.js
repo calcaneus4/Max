@@ -386,4 +386,8 @@ window.LANG.fr = {
   "book.mks-01.learn1": "Distinguer ce que tu vois de ce que tu devines",
   "book.mks-01.learn2": "Pourquoi avoir l'air officiel n'est pas la même chose qu'être officiel",
   "book.mks-01.learn3": "Remarquer ce qui manque",
+  "series.max.bannerTitle": "De la vraie médecine. De vrais indices. Un détective de douze ans.",
+  "series.max.bannerLine": "Max Millhopper et ses amis Katie et George résolvent des mystères médicaux à Cortland Bay, en Floride, et chaque enquête fait découvrir de la vraie science.",
+  "series.mks.bannerTitle": "Six écuyers laissés pour compte. Un magicien malgré lui.",
+  "series.mks.bannerLine": "Des enquêtes à armes égales où chaque indice est sur la page, et où les écuyers apprennent à distinguer ce qu’ils voient de ce qu’ils devinent.",
 };

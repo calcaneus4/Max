@@ -323,3 +323,7 @@ h3 { font-size: 1.15rem; margin: 0.6em 0 0.3em; }
 /* Character portrait that opens the full reference sheet. */
 .char-zoom { display: block; width: 100%; aspect-ratio: auto; padding: 0; border: none; box-shadow: none; background: none; transform: none !important; }
 .char-zoom .char-pic { border: var(--line); }
+
+/* Banner text fades while it switches to the next series. */
+.hero-title, .hero-line { transition: opacity 0.25s ease; }
+.hero-text.swap .hero-title, .hero-text.swap .hero-line { opacity: 0; }

@@ -386,4 +386,8 @@ window.LANG.it = {
   "book.mks-01.learn1": "Distinguere ciò che vedi da ciò che supponi",
   "book.mks-01.learn2": "Perché sembrare ufficiale non è lo stesso che essere ufficiale",
   "book.mks-01.learn3": "Accorgerti di ciò che manca",
+  "series.max.bannerTitle": "Vera medicina. Veri indizi. Un detective di dodici anni.",
+  "series.max.bannerLine": "Max Millhopper e i suoi amici Katie e George risolvono misteri medici a Cortland Bay, in Florida, e ogni caso insegna vera scienza.",
+  "series.mks.bannerTitle": "Sei scudieri avanzati. Un mago riluttante.",
+  "series.mks.bannerLine": "Gialli a carte scoperte in cui ogni indizio è sulla pagina e gli scudieri imparano a distinguere ciò che vedono da ciò che soltanto immaginano.",
 };
