@@ -76,5 +76,59 @@
   0.13,
   0.68,
   0.3
+ ],
+ "admiral": [
+  "Admiral.jpg",
+  0.135,
+  0.27,
+  0.38
+ ],
+ "voran": [
+  "Dean Voran.jpg",
+  0.13,
+  0.8,
+  0.25
+ ],
+ "gawain": [
+  "Gawain.jpg",
+  0.115,
+  0.79,
+  0.27
+ ],
+ "gwen": [
+  "Gwen.jpg",
+  0.275,
+  0.81,
+  0.25
+ ],
+ "kay": [
+  "Kay.jpg",
+  0.12,
+  0.795,
+  0.27
+ ],
+ "lance": [
+  "Lancelot (Lance).jpg",
+  0.14,
+  0.8,
+  0.26
+ ],
+ "merlin": [
+  "Merlin.jpg",
+  0.11,
+  0.8,
+  0.3
+ ],
+ "morgan": [
+  "Morgan.jpg",
+  0.875,
+  0.16,
+  0.25
+ ],
+ "percival": [
+  "Percival.jpg",
+  0.895,
+  0.69,
+  0.3
  ]
 }

@@ -79,19 +79,19 @@ window.SITE = {
       seriesLinks: {},
       tagline: "Six leftover squires, one reluctant wizard, and mysteries solved by clear thinking.",
       about:
-        "No elite cohort picked them, so six misfit squires end up at Merlin's Knight School, where the great wizard teaches them to think before they charge. Each book is a fair-play mystery: every clue is on the page, and the squires learn to separate what they can see from what they only guess.",
+        "No elite cohort picked them, so six misfit squires end up in the Leftover Yard at Merlin's Knight School, where the great wizard teaches them to think before they charge. Each book is a fair-play mystery for ages 8–14: every clue is on the page, and the squires learn to separate what they can actually see from what they only guess.",
       readingOrder:
-        "Start with Book 1, Trial by Wyvern. Each book is told by a different squire and solves its own mystery.",
+        "Start with Book 1, Trial by Wyvern. Each book solves its own mystery, told through Kay's eyes, and the friendships and running jokes grow from book to book.",
       characters: [
         { id: "kay", name: "Kay", image: "images/mks/characters/kay.jpg", role: "The Improviser", bio: "Cocky grin, scorched sleeve (a design choice) and a coil of rope instead of a sword. Kay acts first and thinks second, with his boar, Tusk, close behind." },
         { id: "lance", name: "Lancelot (Lance)", image: "images/mks/characters/lance.jpg", role: "The Prodigy", bio: "Brilliant with a sword and too proud to ask for help. His russet fox wears a red bandana." },
-        { id: "gawain", name: "Gawain", image: "images/mks/characters/gawain.jpg", role: "The Natural Protector", bio: "Brave and strong, and stronger still in sunlight, which fades when clouds roll in. His hawk watches from above." },
+        { id: "gawain", name: "Gawain", image: "images/mks/characters/gawain.jpg", role: "The Natural Protector", bio: "Brave and strong, and stronger still in sunlight; his strength fades when clouds roll in or night falls. His hawk watches from above." },
         { id: "percival", name: "Percival", image: "images/mks/characters/percival.jpg", role: "The Quiet Observer", bio: "Notices everything, doubts himself, and is gentle with every animal, especially his rabbit." },
         { id: "gwen", name: "Gwen", image: "images/mks/characters/gwen.jpg", role: "The Strategist", bio: "Keeps a leather notebook full of numbered rules (out of order, on purpose) and a loyal hound at her side." },
         { id: "morgan", name: "Morgan", image: "images/mks/characters/morgan.jpg", role: "The Hedge Mage", bio: "Small, tidy hedge magic and a glossy black raven that steals shiny things. \"Fine, I'll fix it myself.\"" },
         { id: "merlin", name: "Merlin", image: "images/mks/characters/merlin.jpg", role: "The Reluctant Mentor", bio: "Speaks little and explains less. Clears his throat before he says anything important. \"Don't get used to it.\"" },
         { id: "admiral", name: "Admiral", image: "images/mks/characters/admiral.jpg", role: "Merlin's duck", bio: "A mallard who is always one step ahead of everyone, including Merlin." },
-        { id: "voran", name: "Dean Voran", image: "images/mks/characters/voran.jpg", role: "Dean of the Golden Cohort", bio: "Silver-haired, cold and exact. His highest praise is \"Adequate.\"" },
+        { id: "voran", name: "Dean Voran", image: "images/mks/characters/voran.jpg", role: "Dean of the school", bio: "Silver-haired, cold and exact, he runs the school's reviews and favours the Golden Cohort. His highest praise is \"Adequate.\"" },
       ],
     },
   ],
@@ -110,10 +110,17 @@ window.SITE = {
       series: "mks",
       number: 1,
       title: "Trial by Wyvern",
+      tagline: "Six leftover squires. One very grumpy wyvern.",
       blurb:
-        "Trouble has come to the Harrow Gorge, and everyone is ready to blame the wyvern. Kay and the other leftover squires have to look past the obvious answer and follow the clues to the truth.",
+        "On their first day at Merlin's Knight School, six misfit squires that no elite cohort picked get exactly three words of instruction from Merlin: \"Forest. Problem. Fix it.\" The problem turns out to be a wyvern sitting on the old rope bridge at Wickerbridge. Merlin's written orders, which said in capital letters DO NOT ENGAGE, are underneath his duck.\n\nKay, Lance, Gawain, Percival, Gwen and Morgan, together with a boar, a fox, a hawk, a rabbit, a hound and a raven, soon notice that the wyvern is not behaving like a monster at all.\n\nWhy would a beast that has hurt no one guard one crumbling tower — and who gains from keeping the bridge closed?",
+      learn: [
+        "Merlin's Three Questions: SEE, MEAN, ELSE",
+        "Telling what you see from what you guess",
+        "Why official-looking isn't the same as official",
+        "Noticing what's missing",
+      ],
       cover: "images/mks/01/cover.jpg",
-      gallery: ["images/mks/01/01.jpg", "images/mks/01/02.jpg", "images/mks/01/03.jpg", "images/mks/01/04.jpg", "images/mks/01/05.jpg", "images/mks/01/06.jpg"],
+      gallery: ["images/mks/01/wide.jpg", "images/mks/01/01.jpg", "images/mks/01/02.jpg", "images/mks/01/03.jpg", "images/mks/01/04.jpg", "images/mks/01/05.jpg", "images/mks/01/06.jpg"],
       buy: {
         en: { kindle: "", paperback: "", hardcover: "" },
         es: { kindle: "", paperback: "", hardcover: "" },
