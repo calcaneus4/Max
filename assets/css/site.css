@@ -327,3 +327,50 @@ h3 { font-size: 1.15rem; margin: 0.6em 0 0.3em; }
 /* Banner text fades while it switches to the next series. */
 .hero-title, .hero-line { transition: opacity 0.25s ease; }
 .hero-text.swap .hero-title, .hero-text.swap .hero-line { opacity: 0; }
+
+/* ---------- Phones ---------- */
+@media (max-width: 640px) {
+  /* Home banner: show the picture, then the text card below it (it covered the whole picture). */
+  .hero-art { height: 58vw; }
+  .hero-text {
+    position: relative;
+    left: auto;
+    bottom: auto;
+    transform: none;
+    width: auto;
+    margin: -1.6rem 0.8rem 0;
+    padding: 0.8rem 1rem 1rem;
+  }
+  .hero { padding-bottom: 1rem; }
+  .hero-text h1 { font-size: 1.35rem; }
+  .hero-text .lead { font-size: 0.98rem; }
+  .series-hero-text { margin-top: -2.5rem; padding: 1rem 1.1rem; }
+  .series-hero-text h1 { font-size: 1.8rem; }
+  .wrap { padding: 1.1rem 0.9rem; }
+  body { font-size: 17px; }
+  .gallery { grid-template-columns: 1fr 1fr; gap: 0.6rem; }
+  .book-grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 1.1rem 0.8rem; }
+  .char-grid { grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+  .char-card { padding: 0.6rem; }
+  .char-card p { font-size: 0.88rem; }
+  .book-nav { justify-content: center; }
+  .lightbox { padding: 3rem 0.4rem; }
+  .lb-prev, .lb-next { top: auto; bottom: 1rem; }
+  .lb-prev { left: calc(50% - 3.4rem); }
+  .lb-next { right: calc(50% - 3.4rem); }
+  .sort-list li { flex-direction: column; align-items: stretch; }
+  .sort-btns { justify-content: flex-end; }
+  .sort-btns .tag { padding: 0.5em 1em; font-size: 0.9rem; }
+}
+
+/* Comfortable finger-sized targets on touch screens. */
+@media (pointer: coarse) {
+  .menu-btn { min-width: 44px; min-height: 44px; }
+  .site-nav a { padding: 0.7em 0.8em; }
+  .lang-pick select { min-height: 44px; font-size: 1rem; }
+  .hero-tab { min-height: 42px; }
+  .hero-go, .crumb { display: inline-block; padding: 0.6em 0; }
+  .mem-bar select { min-height: 40px; font-size: 1rem; }
+  .btn { min-height: 42px; }
+  .choice { min-height: 48px; }
+}
