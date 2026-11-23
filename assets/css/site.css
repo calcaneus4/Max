@@ -171,6 +171,9 @@ h3 { font-size: 1.15rem; margin: 0.6em 0 0.3em; }
 .book-card { display: flex; flex-direction: column; text-decoration: none; transition: transform 0.12s; }
 .book-card:hover { transform: translateY(-4px) rotate(-1deg); }
 .book-card .cover { box-shadow: 4px 4px 0 var(--ink); }
+/* Planned books: no link, a little faded. */
+.book-card.soon { opacity: 0.75; }
+.book-card.soon:hover { transform: none; }
 .book-num { font-weight: 700; font-size: 0.8rem; color: var(--c); margin: 0.5rem 0 0; text-transform: uppercase; letter-spacing: 0.05em; }
 .book-title { font: 700 1rem/1.25 var(--head); }
 

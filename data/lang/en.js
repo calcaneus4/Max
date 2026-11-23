@@ -34,6 +34,7 @@ window.LANG.en = {
   "book.inside": "Inside the book",
   "book.edition": "Edition",
   "book.soon": "Links coming soon.",
+  "book.comingSoon": "Coming soon",
   "book.prev": "Previous book",
   "book.next": "Next book",
   "book.back": "All books in the series",

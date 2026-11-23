@@ -130,5 +130,106 @@
   0.895,
   0.69,
   0.3
+ ],
+ "lowery": [
+  "Bernadette Lowery.jpg",
+  0.705,
+  0.23,
+  0.28
+ ],
+ "stiles": [
+  "Dr. Jo Stiles.jpg",
+  0.735,
+  0.22,
+  0.28
+ ],
+ "nell": [
+  "Nell Quill.jpg",
+  0.73,
+  0.2,
+  0.28
+ ],
+ "cassian": [
+  "Cassian.jpg",
+  0.12,
+  0.79,
+  0.3
+ ],
+ "edda": [
+  "Dame Edda Strand.jpg",
+  0.915,
+  0.22,
+  0.26
+ ],
+ "elara": [
+  "Elara.jpg",
+  0.125,
+  0.79,
+  0.3
+ ],
+ "cohort": [
+  "Golden Cohort (Zara, Mei, Torvin, Reed).jpg",
+  [
+   0.155,
+   0.14,
+   0.28
+  ],
+  [
+   0.36,
+   0.15,
+   0.28
+  ],
+  [
+   0.595,
+   0.15,
+   0.28
+  ],
+  [
+   0.82,
+   0.15,
+   0.28
+  ]
+ ],
+ "hodge": [
+  "Hodge.jpg",
+  0.9,
+  0.15,
+  0.25
+ ],
+ "brisk": [
+  "Master Brisk.jpg",
+  0.752,
+  0.46,
+  0.25
+ ],
+ "nan": [
+  "Nan Pottle.jpg",
+  0.912,
+  0.25,
+  0.25
+ ],
+ "penelope": [
+  "Penelope Quill.jpg",
+  0.86,
+  0.14,
+  0.28
+ ],
+ "archivist": [
+  "The Archivist.jpg",
+  0.7,
+  0.76,
+  0.4
+ ],
+ "herald": [
+  "The King's Herald (Clarice Ambrey).jpg",
+  0.6,
+  0.82,
+  0.3
+ ],
+ "tusk": [
+  "Tusk.jpg",
+  0.165,
+  0.3,
+  0.44
  ]
 }

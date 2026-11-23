@@ -180,6 +180,17 @@ function bookCard(b) {
   </a>`;
 }
 
+// A planned book that isn't finished: a drawn card with no link and a "Coming soon" note.
+function soonCard(b) {
+  const s = seriesById(b.series);
+  const title = b.title ? tx(`soon.${b.series}-${String(b.number).padStart(2, "0")}.title`, b.title) : "";
+  return `<div class="book-card soon" style="--c:${s.color};--a:${s.accent}">
+    <span class="pic cover ph"><span class="ph-label">${esc(t("book.number", { n: b.number }))}</span><span class="ph-sub">${esc(t("book.comingSoon"))}</span></span>
+    <span class="book-num">${esc(t("book.number", { n: b.number }))} · ${esc(t("book.comingSoon"))}</span>
+    ${title ? `<span class="book-title">${esc(title)}</span>` : ""}
+  </div>`;
+}
+
 // One picture from each book in turn (the first is each book's wide scene), so every book shows up.
 function roundRobin(series, limit) {
   const books = booksIn(series);
@@ -353,7 +364,10 @@ function renderSeries() {
       ${seriesStoreButtons(s)}
       <h2 class="section-title">${esc(t("series.order"))}</h2>
       <p class="small">${esc(tx(`series.${s.id}.readingOrder`, s.readingOrder))}</p>
-      <ol class="book-grid">${books.map((b) => `<li>${bookCard(b)}</li>`).join("")}</ol>
+      <ol class="book-grid">${books.map((b) => `<li>${bookCard(b)}</li>`).join("")}${(SITE.comingSoon || [])
+        .filter((b) => b.series === s.id)
+        .map((b) => `<li>${soonCard(b)}</li>`)
+        .join("")}</ol>
     </section>
     <section class="wrap" style="--c:${s.color};--a:${s.accent}">
       <h2 class="section-title">${esc(t("series.characters"))}</h2>

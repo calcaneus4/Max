@@ -51,7 +51,7 @@ window.SITE = {
       about:
         "Twelve-year-old Max Millhopper has a spiral notebook, a magnifying glass and a knack for spotting what the grown-ups miss. With his best friends Katie and George, he solves medical mysteries in the small coastal town of Cortland Bay, Florida — and every case teaches real science along the way. Each book is a stand-alone mystery, written by a pediatrician.",
       editionsNote:
-        "Each book comes as a Kindle eBook (the complete novel) and as an illustrated picture-story edition in paperback and hardcover (full-colour pictures with short captions). Also available in Spanish, German, French, Italian and Japanese.",
+        "Each book comes as a Kindle eBook (the complete novel) and as an illustrated picture-story edition in paperback and hardcover (full-colour pictures with short captions). Books 1–15 are also available in Spanish, German, French, Italian and Japanese.",
       readingOrder:
         "Each book is a stand-alone mystery, so you can start anywhere. Reading in order lets you watch the friendships (and the running jokes) grow.",
       characters: [
@@ -68,6 +68,9 @@ window.SITE = {
         { id: "da", name: "George's dad", image: "images/max/characters/da.jpg", role: "The District Attorney", bio: "The district attorney, famous for having the driest line in the room." },
         { id: "marcus", name: "Marcus Kraut", image: "images/max/characters/marcus.jpg", role: "The reporter", bio: "A reporter who always wants the story first. His newspaper byline wraps up every case." },
         { id: "tarrant", name: "Doc Tarrant", image: "images/max/characters/tarrant.jpg", role: "George's great-grandfather", bio: "An Army medic from 1968 and George's great-grandfather, honored with a bronze statue in Cortland Bay." },
+        { id: "stiles", name: "Dr. Jo Stiles", image: "images/max/characters/stiles.jpg", role: "The vet", bio: "A veterinarian who makes her rounds in a mobile veterinary truck." },
+        { id: "nell", name: "Nell Quill", image: "images/max/characters/nell.jpg", role: "Bait-shack keeper", bio: "Keeps the bait shack by Lantern Point." },
+        { id: "lowery", name: "Bernadette Lowery", image: "images/max/characters/lowery.jpg", role: "The health department", bio: "Works for the county health department, so she is the one to call when something is making people sick." },
       ],
     },
     {
@@ -87,7 +90,7 @@ window.SITE = {
       about:
         "No elite cohort picked them, so six misfit squires end up in the Leftover Yard at Merlin's Knight School, where the great wizard teaches them to think before they charge. Each book is a fair-play mystery for ages 8–14: every clue is on the page, and the squires learn to separate what they can actually see from what they only guess.",
       readingOrder:
-        "Start with Book 1, Trial by Wyvern. Each book solves its own mystery, told through Kay's eyes, and the friendships and running jokes grow from book to book.",
+        "Start with Book 1, Trial by Wyvern. Each book solves its own mystery, and the friendships and running jokes grow from book to book. Books 1–10 are told through Kay's eyes, and Books 11–20 through Morgan's.",
       characters: [
         { id: "kay", name: "Kay", image: "images/mks/characters/kay.jpg", role: "The Improviser", bio: "Cocky grin, scorched sleeve (a design choice) and a coil of rope instead of a sword. Kay acts first and thinks second, with his boar, Tusk, close behind." },
         { id: "lance", name: "Lancelot (Lance)", image: "images/mks/characters/lance.jpg", role: "The Prodigy", bio: "Brilliant with a sword and too proud to ask for help. His russet fox wears a red bandana." },
@@ -98,6 +101,17 @@ window.SITE = {
         { id: "merlin", name: "Merlin", image: "images/mks/characters/merlin.jpg", role: "The Reluctant Mentor", bio: "Speaks little and explains less. Clears his throat before he says anything important. \"Don't get used to it.\"" },
         { id: "admiral", name: "Admiral", image: "images/mks/characters/admiral.jpg", role: "Merlin's duck", bio: "A mallard who is always one step ahead of everyone, including Merlin." },
         { id: "voran", name: "Dean Voran", image: "images/mks/characters/voran.jpg", role: "Dean of the school", bio: "Silver-haired, cold and exact, he runs the school's reviews and favours the Golden Cohort. His highest praise is \"Adequate.\"" },
+        { id: "tusk", name: "Tusk", image: "images/mks/characters/tusk.jpg", role: "Kay's boar", bio: "Kay's boar, never far behind him." },
+        { id: "nan", name: "Nan Pottle", image: "images/mks/characters/nan.jpg", role: "The school cook", bio: "Runs the school kitchen, wooden spoon in hand." },
+        { id: "cassian", name: "Cassian", image: "images/mks/characters/cassian.jpg", role: "Golden Cohort squire", bio: "A Golden Cohort squire in a sapphire-blue cape, and Lance's rival." },
+        { id: "elara", name: "Elara", image: "images/mks/characters/elara.jpg", role: "Golden Cohort squire", bio: "A Golden Cohort squire in an emerald-green cape." },
+        { id: "cohort", name: "Zara, Mei, Torvin and Reed", image: "images/mks/characters/cohort.jpg", role: "The rest of the Golden Cohort", bio: "The other four squires of the Golden Cohort, the school's elite group." },
+        { id: "edda", name: "Dame Edda Strand", image: "images/mks/characters/edda.jpg", role: "Master of Arms", bio: "Master of Arms of the Golden Cohort from Book 5. Before that, she was the King's Falconer." },
+        { id: "penelope", name: "Penelope Quill", image: "images/mks/characters/penelope.jpg", role: "The reporter", bio: "Writes for the Pennywick Herald and is always looking for her next story." },
+        { id: "hodge", name: "Hodge", image: "images/mks/characters/hodge.jpg", role: "The night porter", bio: "The night porter of the north tower, with his lantern and his big leather book." },
+        { id: "archivist", name: "The Archivist", image: "images/mks/characters/archivist.jpg", role: "Guardian of the archive", bio: "Built of old books, it guards the school's Restricted Archive." },
+        { id: "brisk", name: "Master Brisk", image: "images/mks/characters/brisk.jpg", role: "The old artificer", bio: "Master Wendel Brisk, the old artificer, never far from his oil can." },
+        { id: "herald", name: "Clarice Ambrey", image: "images/mks/characters/herald.jpg", role: "The King's Herald", bio: "Mistress Clarice Ambrey, Royal Tournament Herald. When she raises her trumpet, everyone listens." },
       ],
     },
   ],
@@ -139,10 +153,10 @@ window.SITE = {
   ],
 };
 
-// The fifteen Max Millhopper books. Each block has the English title, tagline, back-cover blurb,
+// The Max Millhopper books. Each block has the English title, tagline, back-cover blurb,
 // the "In this book you'll learn" list and the YouTube links (en = English video, es = Spanish).
 // Translations of these texts live in data/lang/<code>.js under "book.max-01.title" and so on.
-// Pictures go in images/max/01/ … images/max/15/ (cover.jpg, 01.jpg … 06.jpg, wide.jpg).
+// Pictures go in images/max/01/ … images/max/20/ (cover.jpg, 01.jpg … 06.jpg, wide.jpg).
 const MAX_BOOKS = [
   {
     number: 1,
@@ -339,6 +353,71 @@ const MAX_BOOKS = [
     ],
     youtube: { en: "https://www.youtube.com/watch?v=c86lN_JfDtY", es: "" },
   },
+  {
+    number: 16,
+    title: "The Swallowed Diamond",
+    tagline: "A $400,000 pink diamond. One gulp, and it was gone.",
+    blurb: "Cortland Bay wants to relight its old lighthouse, and a widow named Delphine Merriweather is donating her pink diamond, the Lantern Rose, to pay for it. About two hundred people pack the auction tent at the Strawberry Festival.\n\nThen a runaway goat charges into the tent, the auctioneer starts sneezing, and when the dust settles the velvet cushion is empty. Everyone is searched. Nothing turns up. So the diamond must have been swallowed.\n\nWith a hospital X-ray room, a gemologist's scale and a petting-zoo goat who nibbles everything in reach, Max Millhopper sets out to find the Lantern Rose.",
+    learn: [
+      "What happens to something you swallow, and what usually passes on its own",
+      "Why a swallowed button battery is an emergency",
+      "Why bones and metal show up white on an X-ray",
+      "How gemologists tell a real diamond from a fake",
+    ],
+    youtube: { en: "", es: "" },
+  },
+  {
+    number: 17,
+    title: "Silent Springs",
+    tagline: "A crystal-clear spring. A dive that went wrong.",
+    blurb: "A green glass bottle washes up below Lantern Point with a note from a nine-year-old girl at Silent Springs: the spring is getting quieter every year, so please come and see it. Aunt Mattie drives Max, Katie and George inland to the clearest water they have ever seen.\n\nThat morning a hydrologist dives fifty-eight feet down to bring up ten years of measurements about the spring's flow. He shoots back to the surface, confused, and collapses on the dock. The dive club's president says he panicked. His gauge says his tank was full.\n\nWith a hospital's hyperbaric chamber, a dive computer's record and a nine-year-old witness, Max sets out to learn what really happened at fifty-eight feet, while George nurses a goldfish that floats upside down.",
+    learn: [
+      "Why air expands as a diver rises, and why divers never hold their breath",
+      "The difference between an air embolism and the bends, and how a hyperbaric chamber treats them",
+      "How Florida's springs work, and why manatees visit them in winter",
+      "How fish use a swim bladder, and why a goldfish can float upside down and still be alive",
+    ],
+    youtube: { en: "", es: "" },
+  },
+  {
+    number: 18,
+    title: "Stand Still",
+    tagline: "A girl who can't stand. A barn that's being framed.",
+    blurb: "Nine-year-old Tilly Brennan rides her pony, Thimble, at Sweetgrass Stables. On Thursday her legs went wobbly. By Friday night she couldn't stand. She has no fever and she is as chatty as ever, but her reflexes are gone, and the weakness is climbing. The hospital fears Guillain-Barré syndrome. Her mother is sure the stable poisoned her.\n\nAt Sweetgrass, the champion horse has gone lame, families are pulling their kids out, and the rich neighbor wants to buy the place. Then the horses' health papers go missing with a state inspection on the way.\n\nMax, Katie and George head out to the barn. Katie rides there every Saturday. George is terrified of horses, so he arrives in two helmets with a Tick Defense Kit and is assigned the sleepiest pony at Sweetgrass.",
+    learn: [
+      "How doctors test reflexes, strength and feeling, and what Guillain-Barré syndrome is",
+      "How nerves carry signals to muscles, and what a reflex is",
+      "What a hoof abscess is, and why horse barns need a Coggins test",
+      "Why wilted red maple leaves are dangerous to horses",
+    ],
+    youtube: { en: "", es: "" },
+  },
+  {
+    number: 19,
+    title: "Red Tide",
+    tagline: "A beach full of dead fish. A clam with a perfect tag.",
+    blurb: "Dead fish are washing up on the beach at Cortland Bay, and everyone on the pier is coughing. It's a red tide. The state has closed the shellfish beds, and George evacuates his goldfish to the library, just in case.\n\nThen seven-year-old Toby Fairbanks can't walk straight. His lips feel fizzy, his parents are dizzy and tingly, and his dad says his ice water is hot. The family ate clams, but the seafood market swears they came from a clean clam farm up the coast, and every bag has the official tag to prove it.\n\nTwelve-year-old Max Millhopper, Katie and George start asking questions, while old Nell Quill at the bait shack talks about ghost lights bobbing on the dark flats below the lighthouse.",
+    learn: [
+      "What a red tide is, and why it makes people cough on the beach",
+      "Why red tide kills fish but not the clams that soak up its toxin",
+      "How doctors recognize shellfish poisoning, and why cooking doesn't help",
+      "How shellfish tags and closures keep store-bought clams safe",
+    ],
+    youtube: { en: "", es: "" },
+  },
+  {
+    number: 20,
+    title: "Smoke and Salt",
+    tagline: "A six-year-old turning blue. An oxygen level that won't go up.",
+    blurb: "It's the Smokeout, Cortland Bay's barbecue cook-off, and Hattie Hollowell's famous beans have won the People's Choice three years running. That night six-year-old Lulu Montalvo arrives at the ER with gray-blue lips. The doctors turn her oxygen all the way up, and her oxygen level won't go up.\n\nTwo more people who ate at the same stand turn gray too, and one of them is the town's reporter, Marcus Kraut. Lulu's blood is the color of chocolate milk. The stand is shut down, and the whole town decides that Hattie mixed up her pink salt.\n\nTwelve-year-old Max Millhopper, Katie and George build a timeline of who ate what, and when, while George, newly appointed a junior judge, refuses to taste anything without a written list of ingredients.",
+    learn: [
+      "How hemoglobin carries oxygen, and why extra oxygen can't help when it's been changed",
+      "Why the blood turned chocolate brown, and how a blue medicine turns gray lips pink again",
+      "Why curing salt is colored, and why it isn't the same as Himalayan pink salt",
+      "What makes the pink smoke ring in barbecue, and how health detectives trace a food poisoning",
+    ],
+    youtube: { en: "", es: "" },
+  },
 ];
 
 const MAX_STORE_LINKS = {
@@ -360,3 +439,275 @@ MAX_BOOKS.forEach((book) => {
     youtube: { en: "", es: "", ...(book.youtube || {}) },
   });
 });
+
+// Merlin's Knight School Books 2–20 (Book 1 is written out in full above, with its link blocks).
+// Store and YouTube links: add them in MKS_LINKS by book number, e.g.
+//   2: { buy: { en: { kindle: "…" } }, youtube: { en: "…" } },
+// Pictures go in images/mks/02/ … images/mks/20/ (cover.jpg, 01.jpg … 06.jpg, wide.jpg).
+const MKS_BOOKS = [
+  {
+    number: 2,
+    title: "The Bog of Bad Ideas",
+    tagline: "Six squires. One bog. Too many lights.",
+    blurb: "The morning after Wickerbridge, Merlin sends his six leftover squires on a simple errand: pick a little Moonpetal Moss at the edge of the Marrow Bog. Don't trust every light you see.\n\nBy nightfall they are lost, split up and face to face with a very grumpy Bog Guardian, while the village of Mossbury blames the wandering lights, and the 'Bog Troll', for every cart that sinks off the old causeway.\n\nThe 'Wisp-Warden of the Fen' plans a torch-lit hunt for the full moon. Kay has one day to work out which lights really lead people astray, and why.",
+    learn: [
+      "Together isn't the same as because",
+      "How to run a fair test",
+      "Why stories grow every time they're told",
+      "A good theory predicts",
+    ],
+  },
+  {
+    number: 3,
+    title: "Something's Missing",
+    tagline: "Six squires. One empty cushion. A library that knows when you lie.",
+    blurb: "For three hundred years the Founder’s Seal has sat on a velvet cushion in the Restricted Archive. Now there is only the cushion, a key is missing from the Dean’s ring, and a black bird was seen at a window.\n\nThe Dean already knows who to blame: the Leftovers. With Founder’s Day two days away, Kay, Lance, Gawain, Percival, Gwen and Morgan sneak into the Archive at night to clear their names, and meet its guardian, who can always tell a lie.\n\nNothing in the Archive is quite what it seems, and the Seal must be back on its dais by dawn on Founder’s Day.",
+    learn: [
+      "What didn’t happen is evidence too",
+      "An idea isn’t truer because of who says it",
+      "Building a timeline",
+      "The truth counts most when it costs you",
+    ],
+  },
+  {
+    number: 4,
+    title: "The Maze Doesn't Care About Your Plan",
+    tagline: "Six squires. One maze. A sphinx who loves a stumper.",
+    blurb: "This year the Hedge Maze trial decides who goes to the Tournament, and for the first time the Leftovers are allowed to compete. Gwen has a forty-one-page plan. The maze ignores every page of it.\n\nInside, the hedges move, a theatrical Maze Sphinx asks riddles at every turn, the groundskeeper has been ‘staying’ in the middle for six days, and the Golden Cohort keeps finishing in a time nobody has managed in fifty years.\n\nKay is sure Cassian is cheating. Proving how anyone finishes that fast will take every page Gwen got wrong.",
+    learn: [
+      "A map is not the territory",
+      "Look for the pattern in the surprises",
+      "Too good to be true needs explaining",
+      "Check it twice",
+    ],
+  },
+  {
+    number: 5,
+    title: "The Griffon Who Wouldn't Fly",
+    tagline: "Six squires. One very big bird. And the hardest job of all: waiting.",
+    blurb: "Merlin’s “nice, calm” rescue drill at the foot of the Aerie Cliffs turns real when a griffon chick starts crying on a ledge high above. Gawain charges straight up the cliff, and the chick’s enormous mother blows him into a juniper bush.\n\nNow the King’s Master of the Tournament Beasts says the griffon is dangerous and will be taken in hand at dawn, chick and all. The mother hasn’t flown in five days, and the stone pinning the chick’s wing has no business being on a red cliff.\n\nTo save them, the strongest of the six will have to do the one thing he has never been good at: wait.",
+    learn: [
+      "Ask what it’s trying to do",
+      "Ask where it came from",
+      "“Could have” isn’t “did”",
+      "A small push at the right time",
+    ],
+  },
+  {
+    number: 6,
+    title: "The Practice Knight Walks at Night",
+    tagline: "Six squires. One very big knight. And it has somewhere to be.",
+    blurb: "The school’s brand-new practice knight has been walking at night, and its giant footprints lead right to the Leftover Yard gate.\n\nAt the joint drill with the Golden Cohort, Cassian turns it up to “tournament difficulty,” it goes wild, and Lance, who has always believed the best do it alone, charges it alone. Now the knight’s maker says someone tampered with his masterpiece, and the Leftovers’ Tournament hopes hang on the Herald’s inspection.\n\nKay is sure he knows who’s walking the knight. But why do its footprints cross the squires’ own yard, and where does it go at midnight?",
+    learn: [
+      "Ask where it’s going",
+      "One cause, many symptoms",
+      "Test it against the real thing",
+      "Find the rhythm",
+    ],
+  },
+  {
+    number: 7,
+    title: "Something in the Lake",
+    tagline: "Six squires. One very big secret. And a lake full of quick fixes.",
+    blurb: "Merlin calls it a simple errand: a fishing village by a lake, where the nets keep vanishing, and some come back neatly mended.\n\nKay brings a boatful of gadgets nobody asked for. By sunset an enormous lake serpent has surfaced, his net launcher has fired backward, both boats have gone over, and the six are stranded on a reed island for the night. Every quick fix Kay tries makes things worse.\n\nIn Lakemere the talk is of a monster. But the nets from near the island come back with their threads pulled out, while the deep nets on the south shore come home as bare cork lines, and someone wants to buy every boat in Lakemere before the village meets at dawn on the third day.",
+    learn: [
+      "Two causes can look like one",
+      "Put it on a map",
+      "Stop and plan before you fix",
+      "Measure, don’t repeat",
+    ],
+  },
+  {
+    number: 8,
+    title: "The Knight Who Kept Watch",
+    tagline: "Six squires. One very old knight. And a question nobody has asked in four hundred years.",
+    blurb: "Merlin is carrying a secret, and he’s carrying it alone. When he drops a page in very old handwriting, the six follow its map across the moor to a ruined watchtower on a lonely hill.\n\nIn the crypt beneath it they meet Sir Aldric, a ghost knight who has kept watch for four hundred years. He won’t answer their questions. And somebody has been digging in his crypt at night.\n\nKay is sure he knows who. But the answer won’t come from asking harder. It will come from the one thing none of them is good at: being quiet long enough to listen.",
+    learn: [
+      "Listen first",
+      "Rule out what can’t be true",
+      "A light can be a message",
+      "Old books can be wrong",
+    ],
+  },
+  {
+    number: 9,
+    title: "Touch Nothing Without Asking",
+    tagline: "Six squires. Forty kobolds. And a tunnel full of traps.",
+    blurb: "The King’s Tournament Cup comes to the school for safekeeping, and on its very first night it vanishes from a locked cabinet. In the spilled flour: tiny clawed footprints.\n\nThat morning a cheerful rat-catcher is at the gate, offering to clear out whatever lives under the hill. Kay is sure the kobolds took the Cup. He goes down into the Hollow Warrens fast, with a gadget for every problem, and sets off one trap after another.\n\nBut why do the prints in the flour go to the cabinet and never come back? Something very old is shifting deep below the kobolds’ tunnels. And the only one who can lead Kay safely to the bottom has one rule for visitors.",
+    learn: [
+      "Ask how it works before you touch it",
+      "Fast and clever are not always the same speed",
+      "Notice who knows too much",
+      "Check if it even fits",
+    ],
+  },
+  {
+    number: 10,
+    title: "What the School Was Built On",
+    tagline: "A tournament. A conjurer. And something enormous under the floor.",
+    blurb: "The King’s Tournament has come to Merlin’s Knight School at last: three days of events, the stands full, and six squires up against the Golden Cohort. Between events, the crowd’s favorite is a dazzling conjurer who makes coins vanish into his closed hand.\n\nThen a familiar face turns up in the crowd. Kay is sure he knows why the man has come back, and chases him through the Tournament tents.\n\nAll the while, something is stirring far beneath the school. The ground hums under the Leftover Yard, the crack in the Founder’s Seal glows gold, and Merlin will only say that it wakes “once in a very long while.” He keeps promising to explain everything “after.”",
+    learn: [
+      "Watch the other hand",
+      "Put every clue on one list before you decide",
+      "Test what it does, not how it looks",
+      "Ask what it needs",
+    ],
+  },
+  {
+    number: 11,
+    title: "The Bell That Rang at Midnight",
+    tagline: "Year Two. One bell. And nobody pulling the rope.",
+    blurb: "On the first night of Year Two, the school bell rings twelve times at midnight with nobody in the belfry, and so does the little chapel bell in Windle. By morning the Pennywick Herald is asking “RINGING CURSE?” and a jolly travelling bell-founder is selling brass ward-bells to keep it away.\n\nMorgan, whose magic has come back from the summer three sizes too big, is quietly sure the curse is her. With three brand-new first-years underfoot, a gruff new magic teacher, and a grumpy stone gargoyle only she can hear, the six squires set out to count how often bells ring anyway, and who profits when they do.\n\nAnd under the school’s bell, Morgan can hear another one, very far away, ringing wrong.",
+    learn: [
+      "How often does it happen anyway?",
+      "Count the ordinary before you call it strange",
+      "Who profits from the fear?",
+      "Test an idea by taking one thing away",
+    ],
+  },
+  {
+    number: 12,
+    title: "Thief in Black Feathers",
+    tagline: "A village full of missing silver. And everyone blames the raven.",
+    blurb: "Silver is vanishing all over Pennywick: spoons off tables, buttons off coats, links off the Mayor’s chain, and the old silver “luck” that has hung over the Crooked Crown’s hearth for longer than anyone can remember. Every witness swears they saw a big black bird.\n\nPennywick’s constable comes to Merlin’s Knight School for Morgan’s raven. Again. Then the raven disappears. Morgan has to do three hard things: ask the others for help, let Gwen ask the questions, and learn a little of the language of crows.\n\nBecause the way you ask a question can change what people remember.",
+    learn: [
+      "How you ask changes the answer",
+      "Don’t put the answer in the question",
+      "Who wants this clue found?",
+      "Does it fit?",
+    ],
+  },
+  {
+    number: 13,
+    title: "The Seer at the Michaelmas Fair",
+    tagline: "Seven veils. One fortune-teller. And she is never wrong.",
+    blurb: "At Pennywick’s Michaelmas Fair, Madame Zephyrine, the Seer of Seven Veils, makes predictions, and they come true. A goose leads a squire into trouble. A girl in a starry cloak loses a thing she cannot replace. And then the King’s Cup vanishes from the prize tent overnight.\n\nMorgan, who badly wants to ask the Seer one question of her own, isn’t sure what to believe. Percival starts a table of every prediction, the hits and the misses, and the misses column runs off the page.\n\nNobody remembers the misses.",
+    learn: [
+      "Count the misses",
+      "Statements that fit anyone",
+      "Who told her?",
+      "Change one thing and watch what follows",
+    ],
+  },
+  {
+    number: 14,
+    title: "Snowbound",
+    tagline: "Five days. No sun. No road. No way out.",
+    blurb: "The King’s College has sent five Visitors to inspect Merlin’s Knight School, and soon the castle is buried to its windowsills, every inkwell has frozen, and a tiny glittering figure is drawing pictures in the frost on the windows.\n\nThen the steep lane down from the gate turns to glass every night, however much ash they throw on it. Everyone blames the frost sprite. But the leader of the Visitation must be in her College’s hall by the shortest day, or lose the vote of her life.\n\nSnowed in with strangers and short of sun, Morgan and the squires have five days to ask the hardest question of all: what would prove us wrong?",
+    learn: [
+      "What would prove you wrong?",
+      "Test before you trust",
+      "How ash helps you grip ice",
+      "Salt, frost and water",
+    ],
+  },
+  {
+    number: 15,
+    title: "The Unicorn Who Bit Everyone",
+    tagline: "Nineteen hunters. One very cross unicorn.",
+    blurb: "Every dusk a hunting horn has sounded from the north, and by Twelfth Night nineteen hunters are waiting at the Cliff and Beck in Windle with nets, hounds and a handbill: the Beast of Windle Wood bites everyone. A bounty of ten gold crowns says she must be gone by the twelfth.\n\nPercival has read three books about unicorns, and every one says unicorns don’t bite. Then he meets one. She is thin, shaggy and very cross, and the spring she drinks from has turned a strange rust-orange.\n\nWith five days until the hunt, Morgan and the squires must find out what has gone wrong in Windle Wood, and learn when it is wiser to stop than to keep on digging.",
+    learn: [
+      "Sunk costs: would you start it today?",
+      "Knowing when to stop",
+      "How a stream gets poisoned (and how to test it)",
+      "Reading tracks, water and clues",
+    ],
+  },
+  {
+    number: 16,
+    title: "The Rematch",
+    tagline: "One clockwork hippogriff. One very nervous week.",
+    blurb: "The Royal Exhibition trials have come to Merlin’s Knight School, and with them the King’s Cup rematch: Lance against Cassian, on the same mount. The mount is Fidget, a brand-new clockwork hippogriff that faints when it is frightened.\n\nThen things start going wrong. A greased saddle. A jammed sword rack. A bolt through the fair. Everyone blames Sable, the proud Golden first-year who keeps slipping away at night.\n\nMorgan blames her too, and she has four reasons. With the rematch moved to the very last day, the squires must work out what the prizes are making people do.",
+    learn: [
+      "Incentives: what does the reward make people do?",
+      "Ask who gets paid",
+      "Admitting you were wrong",
+      "Teaching someone else to be good",
+    ],
+  },
+  {
+    number: 17,
+    title: "The Library That Lost Its Words",
+    tagline: "One white page. Then hundreds.",
+    blurb: "In the Restricted Archive under Merlin’s Knight School, a page goes white overnight. The words are simply gone, and the pin-holes and ruled lines are still there. For twenty-three days nothing more happens. Then thirty-one more pages go white in a single day, and soon it is hundreds.\n\nThe Archivist blames the new magic teacher, Master Thorne, who reads alone at midnight. Morgan has suspected him all year. A tiny paper-eating inkwyrm called Marge is caught nibbling the margins. And the Patroness’s cheerful new copyist is very busy upstairs.\n\nThis time Gwen can’t do it all herself. With the first-years helping and a rough number on a slate, the squires must estimate first — because nobody can count a million pages one by one.",
+    learn: [
+      "Estimate first: a rough number now beats an exact one never",
+      "Checking a theory against the numbers",
+      "Sharing the work: letting others help",
+      "Saying sorry, properly",
+    ],
+  },
+  {
+    number: 18,
+    title: "Agnes",
+    tagline: "A crow with no letter. A grandmother who knows too much.",
+    blurb: "Old Tom, Gran’s crow, lands on the yard wall with no letter on his leg. Then Gran herself arrives at Merlin’s Knight School, unannounced, the week of May Eve.\n\nBy May morning hedge-witch charms all over the county have gone gray. A cheerful charm-seller in a marigold coat is selling farthing charms that never go gray, and somebody the villagers call the Smoke-Witch is seen at the empty cottages after dark. Morgan is sure she knows who did it, and she says so out loud.\n\nTo find the truth, the squires must keep asking one more question — and then what? And at last Gran and Merlin tell them the story of the Watch that failed, fifty years ago.",
+    learn: [
+      "And then what? Following consequences to their consequences",
+      "Checking whether a fix makes things worse",
+      "Who gains? Following the money",
+      "Owning up when you are wrong",
+    ],
+  },
+  {
+    number: 19,
+    title: "The Exhibition",
+    tagline: "New bells for old. And one old bell goes quiet.",
+    blurb: "Morgan has something she must tell Merlin, and there is nobody left to tell. Merlin and Gran have gone west, and the Royal Exhibition is coming to Merlin’s Knight School, with four silver bells for Lakemere: new bells for old.\n\nThe old Lakemere bell is to ring its last hour. The Watch guards it day and night. Then, on the first night of the Exhibition, under a sky full of rockets, the old bell goes quiet. Morgan is sure she knows who did it. She is wrong, out loud.\n\nAt the Disputation, everybody must argue the other side first. To see what a clever old woman will do next, Morgan must make the best case for the person she trusts least.",
+    learn: [
+      "Make the best case for the other side",
+      "Spotting the straw man: the worst case is easy, and usually wrong",
+      "Think it from their side to see their next move",
+      "Being wrong among friends is still being wrong",
+    ],
+  },
+  {
+    number: 20,
+    title: "The Isle of Apples",
+    tagline: "Three nights. One gray boat. And an island behind the mist.",
+    blurb: "Three nights. A little gray boat waits at the edge of the White Wall, and Gran’s blackthorn stick is gone from beside her bed. Old Fenwick blames the Wall-lights. Morgan is sure she knows who took it. She is wrong.\n\nGwen chalks a new column on the case board: HOW SURE. Every clue moves the number a little. And behind the mist, on an island where every apple tree is in blossom and fruit at once, something old is waiting for a watch.\n\nTen in ten is a fact, not a guess. But waiting is a choice too. To keep the watch, Morgan must say how sure she is, and then go.",
+    learn: [
+      "How sure are you? Then act",
+      "Say it as a number: “probably” means different things",
+      "One clue, one step: change your number a little",
+      "Keep a row for somebody you haven’t thought of",
+    ],
+  },
+];
+
+const MKS_LINKS = {
+};
+
+MKS_BOOKS.forEach((book) => {
+  const n = book.number;
+  const nn = String(n).padStart(2, "0");
+  const links = MKS_LINKS[n] || {};
+  const buy = {};
+  for (const ed of ["en", "es", "de", "fr", "it"]) buy[ed] = { kindle: "", paperback: "", hardcover: "", ...((links.buy || {})[ed] || {}) };
+  window.SITE.books.push({
+    id: `mks-${nn}`,
+    series: "mks",
+    ...book,
+    cover: `images/mks/${nn}/cover.jpg`,
+    gallery: ["wide", 1, 2, 3, 4, 5, 6].map((k) => `images/mks/${nn}/${k === "wide" ? "wide" : "0" + k}.jpg`),
+    buy,
+    youtube: { en: "", ...(links.youtube || {}) },
+  });
+});
+
+// Books that are planned but not finished: shown at the end of the series list as "Coming soon"
+// (a plain card, no page of their own). Leave title "" if there is no title yet.
+// When a book is finished, delete it here and add it above as a normal book.
+window.SITE.comingSoon = [
+  { series: "max", number: 21, title: "" },
+  { series: "mks", number: 21, title: "The Tide That Came Late" },
+  { series: "mks", number: 22, title: "The Boats That Came Home" },
+  { series: "mks", number: 23, title: "Shares in the Sea" },
+  { series: "mks", number: 24, title: "What Everybody Knows" },
+  { series: "mks", number: 25, title: "The Wreck of the Petrel" },
+  { series: "mks", number: 26, title: "The Wall Nobody Needed" },
+  { series: "mks", number: 27, title: "The Gullsmouth Regatta" },
+  { series: "mks", number: 28, title: "One More Basket" },
+  { series: "mks", number: 29, title: "The Founder's Ebb" },
+  { series: "mks", number: 30, title: "The Bell Under the Sea" },
+];

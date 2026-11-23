@@ -44,22 +44,26 @@ It shows as a "Get the series" button on the series page, and every book in that
 
 ## Add a new book
 
-1. Put its pictures in a new folder, for example `images/mks/02/`:
-   - `cover.jpg` (the front cover)
-   - `01.jpg`, `02.jpg`, … (pictures from inside the book, as many as you like)
-2. In `data/books.js`, copy an existing book entry (from `{` to the matching `},`), paste it below, and change:
-   - `id` (e.g. `"mks-02"`), `number`, `title`, `blurb`
-   - the picture paths (`cover`, `gallery`)
-   - the links
-3. Commit. The book appears on the home page ("Newest books"), on its series page in reading order, and gets its own page.
+1. Put its pictures in a new folder, for example `images/mks/21/`: `cover.jpg`, `wide.jpg` and `01.jpg` … `06.jpg`.
+   (Claude can do this for you from a "Book 21 - …" upload folder with `tools/import_images.py`.)
+2. In `data/books.js`, copy the last entry of the right list (from `{` to the matching `},`), paste it below,
+   and change the `number`, `title`, `tagline`, `blurb` and `learn` lines:
+   - **Max Millhopper:** the `MAX_BOOKS` list. Store links go in `MAX_STORE_LINKS` by book number.
+   - **Merlin's Knight School:** the `MKS_BOOKS` list (Books 2 onward). Store and YouTube links go in `MKS_LINKS` by book number:
+     `21: { buy: { en: { kindle: "…" } }, youtube: { en: "…" } },`
+3. If the book was listed as "Coming soon", delete its line from `comingSoon` at the bottom of `data/books.js`.
+4. Commit. The book appears on the home page ("Newest books"), on its series page in reading order, and gets its own page.
 
-**Max Millhopper books** are listed in a short table at the bottom of `data/books.js`:
+## "Coming soon" books
+
+Planned books that aren't finished are listed in `comingSoon` at the bottom of `data/books.js`:
 
 ```js
-[1, "Book 1", ""],   // [number, "Title", "Blurb"]
+{ series: "mks", number: 21, title: "The Tide That Came Late" },
+{ series: "max", number: 21, title: "" },   // no title yet
 ```
 
-Replace `"Book 1"` with the title and add the blurb. Their pictures go in `images/max/01/`, `images/max/02/`, and so on (`cover.jpg`, `01.jpg` … `06.jpg`). To give a Max book its store links, move it up into the main `books` list (copy the Merlin's Knight School entry as a pattern).
+They show at the end of the series page as a plain card marked "Coming soon", with no page of their own.
 
 ## Pictures
 

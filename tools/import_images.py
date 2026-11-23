@@ -32,10 +32,14 @@ CHARACTERS = {
         "max millhopper": "max", "katie": "katie", "george okafor": "george", "sherlock": "sherlock",
         "priya anand": "anand", "clavicle": "clavicle", "aunt mattie": "mattie", "sheriff": "sheriff",
         "deputy ruiz": "ruiz", "dr. lee": "lee", "george's dad": "da", "marcus": "marcus", "doc tarrant": "tarrant",
+        "jo stiles": "stiles", "nell quill": "nell", "bernadette lowery": "lowery",
     },
     "mks": {
         "kay": "kay", "lance": "lance", "gawain": "gawain", "percival": "percival", "gwen": "gwen",
         "morgan": "morgan", "merlin": "merlin", "admiral": "admiral", "voran": "voran",
+        "tusk": "tusk", "nan pottle": "nan", "cassian": "cassian", "elara": "elara", "golden cohort": "cohort",
+        "penelope quill": "penelope", "hodge": "hodge", "archivist": "archivist", "edda strand": "edda",
+        "master brisk": "brisk", "herald": "herald",
     },
 }
 
@@ -53,12 +57,21 @@ def save_character(src, dest):
     if cid not in CROPS:
         save(src, dest, "char")
         return
-    cx, cy, s = CROPS[cid]
+    boxes = CROPS[cid] if isinstance(CROPS[cid][0], list) else [CROPS[cid]]
     with Image.open(src) as im:
         im = im.convert("RGB")
         w, h = im.size
-        side = s * h
-        crop = im.crop((int(cx * w - side / 2), int(cy * h - side / 2), int(cx * w + side / 2), int(cy * h + side / 2)))
+        parts = []
+        for cx, cy, s in boxes:
+            side = s * h
+            parts.append(im.crop((int(cx * w - side / 2), int(cy * h - side / 2), int(cx * w + side / 2), int(cy * h + side / 2))))
+        crop = parts[0]
+        if len(parts) == 4:
+            # A sheet with four characters (e.g. the Golden Cohort): their faces in a 2x2 grid.
+            p = parts[0].size[0]
+            crop = Image.new("RGB", (2 * p, 2 * p))
+            for i, part in enumerate(parts):
+                crop.paste(part.resize((p, p)), ((i % 2) * p, (i // 2) * p))
         tmp = dest.with_name(dest.stem + "-crop.png")
         dest.parent.mkdir(parents=True, exist_ok=True)
         crop.save(tmp)

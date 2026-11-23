@@ -10,15 +10,23 @@ downplay his biography. Never add CV details, phone numbers or email addresses.
 
 ## Status (update this section whenever something changes)
 
-- **Max Millhopper, Medical Detective™** — 15 books, ages 8–12. Titles (6 languages), taglines,
-  blurbs, "In this book you'll learn" lists, 13 characters, covers + 6 inside pictures + a wide scene
-  per book, banner: all done. YouTube: English Books 1–15, Spanish Books 1–4.
+- **Max Millhopper, Medical Detective™** — 20 books, ages 8–12. Titles, taglines, blurbs, "In this
+  book you'll learn" lists, 16 characters, covers + 6 inside pictures + a wide scene per book, banner:
+  all done, all six languages (German/French/Italian titles of Books 16–20 are proposals Michael has
+  not approved; Japanese titles of 16–20 are website translations). YouTube: English Books 1–15,
+  Spanish Books 1–4. Books 16–20 exist in English only so far (the series note says 1–15 are translated).
   Store links: only the **English series pages** (Kindle, paperback, hardcover → Amazon series page
   B0HMN3V31C) in `seriesLinks`. No per-book store links yet; no other-language links yet.
-- **Merlin's Knight School™** — Book 1 *Trial by Wyvern* only, ages 8–14. Banner, cover, 7 pictures,
-  9 characters, fact-checked blurb, tagline, learn list: done. No store or YouTube links yet
-  (not published on KDP as of Nov 2026). Notes from the book pipeline:
-  `docs/Merlin's Knight School - Titles, Blurbs and Links.md`.
+  **Coming soon:** Book 21 (no title yet).
+- **Merlin's Knight School™** — 20 books, ages 8–14 (Book 1 is a full entry in `books`; Books 2–20 are
+  in `MKS_BOOKS`). Banner, covers, 7 pictures per book, 20 characters, fact-checked blurbs, taglines,
+  learn lists: done, all six languages (no Japanese edition exists; Japanese text is a website
+  translation). Books 1–10 are told by Kay, 11–20 by Morgan. No store or YouTube links yet (add them in
+  `MKS_LINKS`). **Coming soon:** Season 3, Books 21–30, titles in `comingSoon` (Japanese titles are
+  website translations). Notes: `docs/Merlin's Knight School - Titles, Blurbs and Links.md`.
+- **Coming soon** books: `window.SITE.comingSoon` at the end of `data/books.js`, translated titles
+  `soon.<series>-<NN>.title`; shown as unlinked cards at the end of the series page. When one is
+  finished, remove it there and add it as a normal book.
 - **Languages:** English, Spanish, French, German, Italian, Japanese — everything is translated.
 - **Games:** Diagnose the Case (Max), Merlin's Three Questions, Memory Match, Which Squire Are You?
 - **Home banner** cross-fades between the two series every 8 s, each with its own headline/line.
@@ -43,14 +51,14 @@ downplay his biography. Never add CV details, phone numbers or email addresses.
 - Max books: `MAX_STORE_LINKS` in `data/books.js`, by book number and language:
   `3: { en: { kindle: "…", paperback: "", hardcover: "" }, es: { kindle: "…" } },`
   YouTube links are in each `MAX_BOOKS` entry: `youtube: { en: "…", es: "…" }`.
-- Merlin's Knight School books: the book's own `buy` / `youtube` blocks.
+- Merlin's Knight School books: Book 1's own `buy` / `youtube` blocks; Books 2+ in `MKS_LINKS`.
 - A link to Amazon's "all books in this series" page goes in the series' `seriesLinks`; every book
   falls back to it for any format without its own link.
 - Strip tracking junk from Amazon URLs (`&ref=…`, `ref_=…`); keep `?binding=…` when present.
 - Language codes: en, es, de, fr, it, ja. Empty links (`""`) are hidden automatically.
 
 **New book.**
-1. Text: add an entry (Max → `MAX_BOOKS`; MKS → the `books` list, copying `mks-01`) with number,
+1. Text: add an entry (Max → `MAX_BOOKS`; MKS → `MKS_BOOKS`) with number,
    title, tagline, blurb (paragraphs separated by a blank line `\n\n`), `learn` list, links.
 2. Translations: add to each of es/fr/de/it/ja: `book.<id>.title`, `.tagline`, `.blurb`,
    `.learn0`…`.learn3` (ids look like `max-16`, `mks-02`). Use Michael's approved titles if he gives
